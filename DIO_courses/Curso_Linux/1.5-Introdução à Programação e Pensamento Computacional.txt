@@ -1,0 +1,247 @@
+_____________________________________________________________
+Linguagens: Compiladas, Interpretadas, compilação Just in Time, Transpilação
+
+As linguagens compiladas (compilação estática) passam pelo o processo de compilação, que envolve converter o nosso código para linguagem de máquina através de um software chamado compilador - para que o processador pode executar.
+The compiler is software that converts a program written in a high-level language (Source Language) to a low-level language (Object/Target/Machine Language/0’s, 1’s). 
+    O compilador converte todo o código de uma vez -> o compilador seleciona todo o código,  converte-o para binário e guarda o resultado em um único “pacote”
+    CARACTERÍSTICAS:
+        Elas tendem a ser mais rápidas e mais eficientes em sua execução do que as linguagens interpretadas (á teremos à mão tudo aquilo que é necessário para a execução)
+        Elas também dão ao desenvolvedor mais controle sobre alguns aspectos do hardware, como o gerenciamento da memória e o uso da CPU.
+        O cliente final não tem acesso ao código-fonte de nosso projeto, visto que recebe apenas o código binário para ser executado.
+        São mais difíceis de "debugar", visto que o código é executado todo de uma só vez.
+
+As linguagens interpretadas (compilação dinâmica) passam pelo processo de interpretação, por meio de um programa chamado interpretador, que irá então converter nosso código para linguagem de máquina.
+Contudo, esse processo irá ocorrer aos poucos, pois o interpretador irá realizar a conversão analisando linha por linha, e não o programa inteiro
+    CARACTERÍSTICAS:
+        O processo de interpretação será mais lento, pois será executado de maneira repetida, e isso diminui a performance.
+            o processo de traduzir o código em tempo de execução aumenta o tempo do processo, podendo fazer com que o programa seja, em geral, mais lento.
+        As linguagens interpretadas possuem a vantagem de ser mais simples de “debugar”
+            Como a interpretação ocorre aos poucos, podemos visualizar com mais facilidade os erros que podem aparecer, e se constatarmos algum problema, poderemos prontamente resolvê-los.
+
+ATENÇÃO: A maioria das linguagens de programação pode ter implementações compiladas e interpretadas – a linguagem em si não é necessariamente compilada ou interpretada.
+
+A compilação just in time (traslação dinâmica) é uma técnica que envolve mesclar conceitos de códigos compilados e interpretados.
+Com o JIT nós continuamos a interpretar os códigos. Entretanto, nós também iremos compilá-los, mas apenas a parte do código que iremos usar no momento da execução.
+     Isso representa um aumento muito grande de performance -> Pois iremos usar o processo de compilação, que já é rápido, e ele será executado em partes isoladas do código, apenas na hora certa (“just in time”).
+     CARACTERÍSTICAS:
+        Temos a velocidade da compilação junto com a simplicidade de debugar nosso código.
+
+Transpilação: é um subgrupo dos compiladores, que pega um arquivo de código fonte, e converte ele em outro arquivo de código fonte, em outra linguagem ou em uma outra versão da mesma linguagem
+    O novo código fonte gerado, ainda precisa ser compilado ou interpretado para ser executado
+
+
+FONTES:
+    https://www.freecodecamp.org/portuguese/news/linguagens-de-programacao-interpretadas-x-compiladas-qual-e-a-diferenca/
+    https://www.freecodecamp.org/news/just-in-time-compilation-explained/
+    https://hcode.com.br/blog/qual-a-diferenca-entre-linguagem-compilada-interpretada-e-jit-just-in-time
+    https://pt.stackoverflow.com/questions/189894/o-que-%c3%a9-transpila%c3%a7%c3%a3o
+    https://stackoverflow.com/questions/44931479/compiling-vs-transpiling
+
+_____________________________________________________________
+Boas práticas de programação
+
+-As boas práticas vão mudando ao longo do tempo
+    Logo, você sempre precisa estar atualizado
+    Hoje em dia se fala sobre: refatorar código (melhorar legibilidade, modularidade, organização), fazer código limpo, fazer código com teste
+-"No mundo real, em situações diferentes, você precisa de um código mais legível, performático, segurança, usabilidade... e cada um tem uma forma diferente de escrever"
+-Se aprende boas práticas tendo feedback do seu código, através da sua equipe, para você olhar para o que fez e porque o código está atrapalhando os outros
+    Não dá para estender o código por causa disso, tem buracos de segurança, tem gargalos de performance...
+-Interessante: Quais características do software...
+    Afetam o dia a dia?
+    Afetam a equipe?
+    Afetam os clientes?
+    O que mais importa para cada um? É a performance? Legibilidade? Custo? Segurança?
+        Muitas vezes o custo-benefício de usar mais processamento, ao invés de gastar tempo fazendo o melhor código otimizado, pode valer a pena
+            Por isso ainda se escolhe usar linguagens como: PHP, JS, ruby, python - que são linguagens interpretadas, do que usar um Java, C# - que são compilados
+                Pois a produtividade vale mais do que a economia de performance
+                Hoje em dia compensa usar uma linguagem não necessariamente a mais rápida, pois a produtividade será melhor; ao invés de economizar em performance, que não será um ganho tão grande 
+        Para um código ser rápido, se precisa de menos abstrações (tirar camadas que vão aumentar as intruções no processamento)
+            Contudo, para um programador entender o código, ele precisa de mais abstrações - ele precisa de contexto (entender por que cada coisa tem o nome que tem -> dar nome para as coisas é difícil na programacao)
+-A prioridade das boas práticas é aumentar a PRODUTIVIDADE -> a performance é secundária
+    Se o código é sujo e mal feito, mas roda muito rápido -> tem um valor
+        Se para modificar esse código, é necessário 10x mais desenvolvedores -> pode não ter compensado esse valor (de rapidez)
+    Logo, o ideal, pode ser ter menos performance, mas ter 5x mais produtividade para modificações
+-As boas práticas não são feitas para o computador rodar mais rápido ou melhor  
+    As boas práticas são feitas para os outros programadores rodarem melhor (incluindo o 'você' de amanhã)
+-INTERESSANTE:
+    Se restringir a fazer funções ou métodos curtos -> passou de 1 page down, tá longo -> pois você não consegue acompanhar um raciocínio se o código for muito longo
+    Código com muita complexidade (for, dentro de outro for, dentro de if...) -> a solução é separar os blocos de código
+    Seniors tem a preocupação de "ajeitar" o código, depois de escrito e testado -> separando códigos muito complexos e testando para ver se tá funcionando (refatorar)
+        Tornam o código simples de entender, compor a nomenclatura das variáveis -> "fazer desorganizado e organizar depois"
+-Design pattern -> repetições de design clássicas
+    Livros citados:
+        design patterns elements of reusable object-oriented software
+        patterns of enterprise application architecture
+        domain-driven design tackling complexity in the heart of software
+        clean architecture
+        Hexagonal architecture alistair cockburn
+-Livro de boas práticas: clean code - robert martin
+-jslint -> linter lê seu código fonte tentando automatizar as boas práticas
+-As melhores boas práticas: é o melhor consenso que sua equipe chegou; reflete a boa comunicação da equipe
+
+
+_____________________________________________________________
+Como um compilador funciona
+
+Compilers vary in the methods they use for analyzing and converting source code to output code. Despite their differences, they typically carry out the following steps:
+There are two major phases of compilation:
+    # Analysis Phase -> An intermediate representation is created from the given source code
+        -Lexical analysis: The compiler splits/divides the source code into lexemes, which are individual code fragments that represent specific patterns in the code.
+            The lexemes are then tokenized in preparation for syntax and semantic analyses -> A token is an object that describes a lexeme. 
+        -Syntax analysis/parsing: The compiler verifies that the code's syntax is correct, based on the rules for the source language.
+            The Syntax analyzer recognizes “sentences” in the program using the syntax of the language
+            The compiler typically creates abstract syntax trees that represent the logical structures of specific code elements.
+        -Semantic analysis: The compiler verifies the validity of the code's logic. The Semantic analyzer checks the static semantics of each construct.
+            This step goes beyond syntax analysis by validating the code's accuracy. 
+            For example, the semantic analysis might check whether variables have been assigned the right types or have been properly declared.
+        -IR code generation: the compiler generates an intermediate representation (IR) of the source code -> The Intermediate Code Generator generates “abstract” code. 
+         The IR code makes it easier to translate the source code into a different format.
+    # Synthesis Phase -> Equivalent target program is created from the intermediate representation.
+        -Optimization: The compiler optimizes the IR abstract code in preparation for the final code generation. 
+            The type and extent of optimization depends on the compiler.
+        -Output code generation: The compiler generates the final output code, using the optimized IR code.
+            It translates abstract intermediate code into specific machine instructions. 
+
+Sources: https://www.techtarget.com/whatis/definition/compiler#:~:text=A%20compiler%20that%20supports%20the,operating%20systems%20and%20computer%20architectures.
+    https://www.geeksforgeeks.org/introduction-of-compiler-design/
+    https://www.baeldung.com/cs/how-compilers-work
+
+
+_____________________________________________________________
+Paradigmas de programação
+
+@@ WIKI @@
+Classifica as linguagens de programacao baseado em suas funcionalidades
+    Os paradigmas são muitas vezes diferenciados pelas técnicas de programação que proíbem ou permitem. 
+Um paradigma de programação fornece e determina a visão que o programador possui sobre: a estruturação e execução do programa. 
+Algumas das "preocupações" dos diferentes paradigmas:
+    implicações para o modelo de execução
+    modo que o código está organizado
+    estilo de sintaxe
+Algumas linguagens foram desenvolvidas para suportar um paradigma específico, enquanto outras suportam múltiplos paradigmas
+
+CONTEXTO:
+    -Inicialmente, os programas estavam em código de máquina - uso de programação binária -> paradigma de programação de muito baixo nível. 
+    -Então, desenvolveram linguagens de montagem (assembly) -> paradigma da segunda geração das linguagens -> ainda é considerada de baixo nível - transformava um comando diretamente em código binário
+    -O próximo avanço foi o desenvolvimento das linguagens procedimentais -> primeiras a serem descritas como de alto nível; liguagens  de terceira geração
+        Ex: COBOL, FORTRAN, ALGOL
+    -Posteriormente, linguagens orientadas a objeto foram criadas -> possbibilidade de criar várias funções para resolver um problema, e reutilizar essas funções como parte para a solução de outro problema
+    -Paradigmas de programação declarativa também foram desenvolvidos.
+    -Paradigma funcional
+    -Paradigma lógico
+
+
+@@ Betrybe @@
+Um paradigma pode ser entendido como um tipo de estruturação (composição da estrutura e execução do sistema) ao qual a linguagem deverá respeitar.
+    Os paradigmas são como regras que determinadas linguagens devem se encaixar. (geekhunter)
+    "Você tem uma solução completa de um problema na cabeça. O paradigma, mostra a forma como essa solução será criada.
+        Não é criar soluções diferentes pra o mesmo problema. É sobre como a mesma solução pode ser pensada de forma diferente
+        O paradigma da programação é: criar soluções iguais, de maneiras diferentes" (códigoFonte YT)"
+A depender do objetivo proposto, a solução que a linguagem oferecerá obedece a um tipo de paradigma.
+Portanto, o que vai definir o paradigma utilizado será a tratativa dada ao problema.
+    O paradigma é a forma de resolver uma questão/problema
+        Para escolher bem, é preciso antes conhecer as alternativas.
+
+Cada paradigma surgiu de necessidades diferentes.
+    Cada um apresenta maiores vantagens sobre os outros dentro do desenvolvimento de determinado sistema. 
+    Conclusão: um paradigma pode oferecer técnicas apropriadas para uma aplicação específica -> um tipo de problema/questão/situação específica
+Saber qual o tipo de paradigma escolher na resolução de um problema, tornará seu raciocínio diferenciado. 
+    Isso quer dizer que: antes de refletir sobre a solução de um problema, você pensará na modelagem dessa solução, ou seja, refletirá sobre o paradigma a ser utilizado.
+
+TIPOS DE PARADIGMAS:
+    OBS: não podemos separar totalmente os paradigmas, como se fossem coisas completamente diferentes. Ex: é errado achar que não há nada de imperativo na programação procedural
+        Paradigmas são evolução de anteriores ou modificação
+    # Paradigma imperativo (paradigma procedural)
+        Explicação:
+            As instruções devem ser passadas ao computador na sequência em que devem ser executadas.
+            Uma espécie de passo-a-passo dos procedimentos que a máquina deverá executar (daí o nome procedural). 
+                Ex: Cobol, Fortran e Pascal.
+            A solução do problema será muito dependente da experiência e criatividade de quem trabalha com a programação. 
+            O foco da resolução estará em “como” deve ser feito.
+            Esse tipo de programação é recomendada:
+                1) Em projetos nos quais não se espera que haja mudanças significativas ao longo do tempo (programa estático)
+                2) Quando se tratar de uma operação complexa — em que os diferentes estados da aplicação necessitem de visualização explícita
+                3) Quando não existiram muitos elementos compartilhados.
+            VANTAGENS:
+                Eficiente
+                Permite uma modelagem tal qual o mundo real
+                Bem estabelecido
+                Bastante flexível
+            DESVANTAGENS:
+                Código fonte gerado é de difícil legibilidade
+        * Programação Procedural:
+            Consiste numa lista de instruções para informar ao computador o que fazer.
+            De uso geral, mas mais indicadas nas seguintes situações:
+                Quando existir uma operação complexa que inclui dependências entre operações e quando há necessidade de visibilidade clara dos diferentes estados do aplicativo;
+                O programa é muito único e poucos elementos foram compartilhados;
+                O programa é estático e não se espera que mude muito ao longo do tempo;
+                Espera-se que nenhum ou apenas alguns recursos sejam adicionados ao projeto ao longo do tempo.
+                Mais em: https://teamtreehouse.com/community/when-to-use-oop-over-procedural-coding
+            Ex: C, C++, Java, Pascal
+        * Programação Orientada ao Objeto:
+            Um dos mais populares no momento
+            Ex de benefícios: modularidade do código, a capacidade de associar diretamente problemas reais em termos de código, primeiro paradigma a permitir a programação multiplataforma.
+                Melhores aplicações:
+                    Vários programadores atuam juntos e não precisam entender tudo sobre cada componente;
+                    Existe muito código a ser compartilhado e reutilizado;
+                    São previstas muitas mudanças no projeto.
+            Neste caso, todos os objetos possuem determinados estados e comportamentos.
+                Enquanto os estados são descritos pelas classes como atributos, a forma como eles se comportam é definida por meio de métodos. 
+            Ex de linguagens: PHP, Java, Ruby, C#, Python
+        * Computação paralela:
+            Um sistema de computação paralela permite que muitos processadores executem um programa em menos tempo, dividindo-os. 
+                Trata-se, portanto, de uma forma de resolução de problemas na qual vários computadores trabalham simultaneamente para chegar a um mesmo objetivo.
+            Ex de linguagens: C, C++
+            Recomendação de uso:
+                Você tem um sistema que possui mais de uma CPU ou processadores multinúcleo;
+                É preciso resolver problemas computacionais que podem levar até dias para serem resolvidos;
+                Se trabalha com simulação computacional, inteligência artificial ou modelagem que exige muitos cálculos dinâmicos.
+    # Paradigma declarativo
+        Explicação:
+            Tem maior nível de abstração -> pois foca mais no "quê" resolver, ao invés do "como" resolver (paradigma imperativo)
+            Paradigmas de Programação Declarativos falam para a máquina o que se deseja obter (o programador apenas declara as propriedades do resultado desejado), mas não o processo para isso; não informa a máquina sobre como devem ser feitos os cálculos relacionados.
+            "O desenvolvedor deve declarar verdades lógicas imutáveis, para as quais os resultados serão sempre os mesmos."
+            Entre as principais vantagens associadas a essa categoria:
+                Estão a facilidade de acesso a banco de dados
+                O maior nível de abstração do código.
+                Os programas feitos com uma linguagem declarativa costumam ser menores, já que é preciso usar menos código para realizar um objetivo 
+        * Paradigma de Lógica de Programação:
+            O paradigma da programação com apontamento lógico não é composto de instruções
+            Ele é baseado em fatos e usa tudo o que sabe para criar um cenário onde todos esses fatos e cláusulas são verdadeiros e apontam para algum final.
+            Mais popular entre quem trabalha com Inteligência Artificial, em projetos de comprovação de teoremas e na criação de programas especialistas.
+            Ex de linguagens: Absys, Ciao, Alice, Mercury, Prolog 
+        * Paradigma Funcional:
+            Popular
+            Se baseia no uso de funções matemáticas
+            Neste caso, o programa é composto de funções curtas, no qual todo o código está dentro de uma função e todas as variáveis têm escopo definido para a função.
+            As funções não modificam nenhum valor fora do escopo dessa função e as próprias funções não são afetadas por nenhum valor fora do escopo.
+            Aqui, subdivide-se o problema proposto e as funções implementadas ficam responsáveis por fazer os cálculos matemáticos. 
+            Sendo assim, o paradigma funcional é bastante indicado nos casos em que há matemática envolvida diretamente na programação.
+            Ex de liguagens: Haskell, Scala, Racket, JavaScript
+
+    # Paradigma funcional
+    # Paradigma lógico
+    # Paradigma orientado a objetos
+    # Paradigma orientado a eventos
+
+Fontes: https://pt.wikipedia.org/wiki/Paradigma_de_programa%C3%A7%C3%A3o
+https://blog.betrybe.com/tecnologia/paradigmas-de-programacao/
+https://www.youtube.com/watch?v=EefVmQ2wPlM
+https://blog.geekhunter.com.br/quais-sao-os-paradigmas-de-programacao/
+https://teamtreehouse.com/community/when-to-use-oop-over-procedural-coding
+
+
+
+
+@@ DIO @@
+Formas de resolução de problemas
+Principais:
+    ## Orientação a objeto
+    Procedural
+    Funcional
+    ## Estruturado
+    Computação distribuída
+    Lógico
+
+
+
